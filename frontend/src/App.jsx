@@ -1,19 +1,13 @@
-import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Signup from './pages/Signup'
 
 function App() {
-  const [status, setStatus] = useState('checking...')
-
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/health`)
-      .then((res) => res.json())
-      .then((data) => setStatus(data.status))
-      .catch(() => setStatus('backend unreachable'))
-  }, [])
-
   return (
-    <div>
-      StudyMate backend status: {status}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
