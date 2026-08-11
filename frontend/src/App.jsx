@@ -1,61 +1,43 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Sidebar from "./components/Sidebar";
-
 import Dashboard from "./pages/Dashboard";
 import StudyTimeline from "./pages/StudyTimeline";
 import Flashcards from "./pages/Flashcards";
 import Quiz from "./pages/Quiz";
+import SessionSummary from "./pages/SessionSummary";
 
 function App() {
   return (
     <BrowserRouter>
 
-      <div
-        style={{
-          display: "flex",
-          minHeight: "100vh",
-        }}
-      >
+      <Routes>
 
-        {/* Sidebar */}
-        <Sidebar />
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
+        />
 
-        {/* Main Content */}
-        <main
-          style={{
-            flex: 1,
-            backgroundColor: "#f7f7f7",
-          }}
-        >
+        <Route
+          path="/timeline"
+          element={<StudyTimeline />}
+        />
 
-          <Routes>
+        <Route
+          path="/flashcards"
+          element={<Flashcards />}
+        />
 
-            <Route
-              path="/dashboard"
-              element={<Dashboard />}
-            />
+        <Route
+          path="/quiz"
+          element={<Quiz />}
+        />
 
-            <Route
-              path="/timeline"
-              element={<StudyTimeline />}
-            />
+        <Route
+          path="/summary"
+          element={<SessionSummary />}
+        />
 
-            <Route
-              path="/flashcards"
-              element={<Flashcards />}
-            />
-
-            <Route
-              path="/quiz"
-              element={<Quiz />}
-            />
-
-          </Routes>
-
-        </main>
-
-      </div>
+      </Routes>
 
     </BrowserRouter>
   );

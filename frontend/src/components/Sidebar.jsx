@@ -44,6 +44,9 @@ function Sidebar() {
         >
           Quiz
         </Link>
+        <Link to="/summary" style={styles.link}>
+  Session Summary
+</Link>
       </nav>
     </aside>
   );
